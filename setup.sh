@@ -388,16 +388,31 @@ brew_installs() {
 	local action="${1}"
 	local file="${2}"
 
+	if [[ ! "$( /usr/bin/which brew )" ]]; then
+
+		brew_paths=( "/usr/local/Homebrew/bin" "/opt/homebrew/bin")
+
+		for path in "${brew_paths[@]}"; do
+			if [[ -e "${path}/brew" ]]; then
+				brew_path="${path}"
+				break
+			fi
+		done
+
+	else
+		brew_path="$( /usr/bin/dirname "$( /usr/bin/which brew )" )"
+	fi
+
 	case "${action}" in
 		"verify" )
-			if [[ $( /usr/bin/which brew ) ]]; then
+			if [[ -e "${brew_path}/brew" ]]; then
 				bundle_contents=$( /bin/cat "${file}" )
 
 				# Get currently installed items
-				formulae=$( /usr/local/bin/brew list -1 )
-				taps=$( /usr/local/bin/brew tap )
-				casks=$( /usr/local/bin/brew list --cask )
-				masa=$( /usr/local/bin/mas list | /usr/bin/sed 's/[^ ]* //' | /usr/bin/awk -F ' \\(' '{print $1}' )
+				formulae=$( "${brew_path}/brew" list -1 )
+				taps=$( "${brew_path}/brew" tap )
+				casks=$( "${brew_path}/brew" list --cask )
+				masa=$( "${brew_path}/mas" list | /usr/bin/sed 's/[^ ]* //' | /usr/bin/awk -F ' \\(' '{print $1}' )
 
 				# Get desired items from the Bundle BrewFile
 				bundle_items=$( echo "${bundle_contents}" | /usr/bin/grep -v "^\#" | /usr/bin/grep "brew\|cask\|tap\|mas" | /usr/bin/sed 's/[^ ]* //' | /usr/bin/awk -F ',' '{print $1}' | /usr/bin/sed 's/"//g' )
@@ -419,22 +434,19 @@ brew_installs() {
 			# Xcode CLI Tools are a prerequisite for Homebrew
 			install_xcode_tools
 
-			if [[ ! $( /usr/bin/which brew ) ]]; then
-				execute_cmd "/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+			if [[ ! -e "${brew_path}/brew" ]]; then
+				NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 			fi
 
 			# Update recipes
-			execute_cmd "/usr/local/bin/brew update"
+			execute_cmd "${brew_path}/brew update"
 
 			# Install desired packages using Bundle ( https://github.com/Homebrew/homebrew-bundle )
-			# execute_cmd "/usr/local/bin/brew tap homebrew/bundle"
-			execute_cmd "/usr/local/bin/brew bundle install --file ${file}"
+			# execute_cmd "${brew_path} tap homebrew/bundle"
+			execute_cmd "${brew_path}/brew bundle install --file ${file}"
 
 			# Install Mac App Store command line interface ( https://github.com/mas-cli/mas )
-			# execute_cmd "/usr/local/bin/brew install mas"
-
-			# Sign in to the Apple Store so apps can install be installed
-			execute_cmd "/usr/local/bin/mas signin --dialog mas@example.com"
+			# execute_cmd "${brew_path} install mas"
 
 			# Remove the quarantine attribute to get plugins working
 			execute_cmd "xattr -d -r com.apple.quarantine ~/Library/QuickLook"
@@ -442,7 +454,7 @@ brew_installs() {
 		"backup" )
 			console_writer "The -backup switch is not supported at this time for brew installs."
 			console_writer "Support may be added at a later time."
-			execute_cmd "/usr/local/bin/brew bundle dump"
+			execute_cmd "${brew_path}/brew bundle dump"
 			# break
 		;;
 	esac
