@@ -24,6 +24,7 @@ cask "sequel-ace"
 cask "qlmarkdown"
 cask "quicklook-json"
 cask "quicklook-csv"
+cask "keybase"
 
 
 # App Store Apps (mas-cli)
