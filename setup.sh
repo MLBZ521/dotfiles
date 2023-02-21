@@ -3,7 +3,7 @@
 ###################################################################################################
 # Script Name:  setup.sh
 # By:  Zack Thompson / Created:  1/12/2020
-# Version:  1.1.1 / Updated:  2/21/2023 / By:  ZT
+# Version:  1.1.3 / Updated:  2/21/2023 / By:  ZT
 #
 # Description:  This script sets up a new macOS environment with the provided configurations.  It 
 #	would be used in scenarios where a new Mac is setup and personalized configurations are desired.
@@ -95,9 +95,10 @@ defaults_helper() {
 		;;
 	esac
 
-	"${cmd[@]}" 2> /dev/null
 	console_writer "The command:  ${cmd[*]} " "Debug" >&2
-	# exit
+	# shellcheck disable=SC2005,SC2068
+	echo "$( ${cmd[@]} 2> /dev/null )"
+
 }
 
 ensure_file_exists() {
@@ -801,10 +802,10 @@ prefs_parser() {
 						# Get the Exit Code
 						exit_code=$?
 
-						if [[ $exit_code != 0 ]]; then
-							console_writer "\xE2\x9D\x8C  ${key}" "" "-e"  # Failed
-						else
+						if [[ $exit_code == 0 ]]; then
 							console_writer "\xE2\x9C\x85  ${key}" "" "-e"  # Ok
+						else
+							console_writer "\xE2\x9D\x8C  ${key}" "" "-e"  # Failed
 						fi
 					fi
 				;;
