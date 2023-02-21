@@ -25,7 +25,8 @@ disabled,Apple Configurator 2,${HOME}/Library/Keychains,login.keychain-db,Device
 enabled,Apple Remote Desktop,/var/db,RemoteManagement,This database and set of caches contains the Remote Desktop Client database used by client reporting
 disabled,Apple Remote Desktop,/var/db/RemoteManagement,RMDB,Or just this one
 enabled,Apple Remote Desktop,/Library/Application Support/Apple,Remote Desktop,
-disabled,Apple Remote Desktop,${HOME}/Library/Containers,com.apple.RemoteDesktop,
+disabled,Apple Remote Desktop,/Users/zthomps3/Library/Application Support,com.apple.RemoteManagementAgent,
+enabled,Apple Remote Desktop,${HOME}/Library/Containers/com.apple.RemoteDesktop/Data/Library/Preferences/,com.apple.RemoteDesktop.plist,"Contains the bulk of the ARD data, including the entire computer 'database', computer lists, scanners, and credentials for all computers"
 enabled,Microsoft Remote Desktop,${HOME}/Library/Containers/com.microsoft.rdc.macos/Data/Library/Application Support/com.microsoft.rdc.macos,com.microsoft.rdc.application-data.sqlite,
 enabled,Microsoft Remote Desktop,${HOME}/Library/Containers/com.microsoft.rdc.macos/Data/Library/Application Support/com.microsoft.rdc.macos,com.microsoft.rdc.application-data.sqlite-shm,
 enabled,Microsoft Remote Desktop,${HOME}/Library/Containers/com.microsoft.rdc.macos/Data/Library/Application Support/com.microsoft.rdc.macos,com.microsoft.rdc.application-data.sqlite-wal,
