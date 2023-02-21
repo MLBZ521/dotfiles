@@ -3,7 +3,7 @@
 ###################################################################################################
 # Script Name:  setup.sh
 # By:  Zack Thompson / Created:  1/12/2020
-# Version:  1.1.0 / Updated:  2/20/2023 / By:  ZT
+# Version:  1.1.1 / Updated:  2/21/2023 / By:  ZT
 #
 # Description:  This script sets up a new macOS environment with the provided configurations.  It 
 #	would be used in scenarios where a new Mac is setup and personalized configurations are desired.
@@ -122,9 +122,9 @@ execute_cmd() {
 	local command="${1}"
 
 	if [[ "${debugging}" != "true" ]]; then
-
-		eval "- ${command}"
-
+		eval " ${command}"
+	else
+		console_writer "Command to execute:  \`${command}\`" "Debug"
 	fi
 
 }
@@ -295,8 +295,7 @@ arg_parse() {
 				shift
 			;;
 			--mac-configs )
-				mac_configs_file=$( ensure_file_exists "${2}" "A macOS Config file was not passed" )
-				shift
+				mac_configs_file="true"
 			;;
 			--prefs )
 				preference_file=$( ensure_file_exists "${2}" "A preferences file was not passed" )
@@ -360,11 +359,9 @@ app_installs() {
 					"restore" )
 						if [[ ! $( /usr/bin/find -E /Applications -iregex ".*[/]${app}[.]app" -type d -prune -maxdepth 1 ) ]]; then
 							console_writer "Install ${app} via trigger:  ${prefix}${event%?}"
-							execute_cmd "/usr/bin/sudo /usr/local/bin/jamf policy -event \"${prefix}${event%?}\""
+							execute_cmd "/usr/bin/sudo /usr/local/bin/jamf policy -event \"${prefix}${event%?}\" -forceNoRecon"
 						fi
 
-						install_autopkg
-						install_xcode_tools
 					;;
 					"backup" )
 						console_writer "The -backup switch is not supported for application installs."
@@ -375,6 +372,14 @@ app_installs() {
 			fi
 
 	done < <( /usr/bin/tail -n +2 "${file}" ) # Essentially, skip the header line
+
+	if [[ "${action}" == "restore" ]]; then
+
+		install_autopkg
+		install_xcode_tools
+
+	fi
+
 }
 
 brew_installs() {
@@ -833,7 +838,7 @@ if [[ -n "${app_configs_file}" ]]; then
 	app_config "${action}" "${app_configs_file}" "${backup_dir}"
 fi
 
-if [[ -n "${backup_dir}" ]]; then
+if [[ -n "${mac_configs_file}" ]]; then
 	macOS_config "${action}" "${backup_dir}"
 fi
 
