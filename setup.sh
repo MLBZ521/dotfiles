@@ -3,7 +3,7 @@
 ###################################################################################################
 # Script Name:  setup.sh
 # By:  Zack Thompson / Created:  1/12/2020
-# Version:  1.1.4 / Updated:  2/21/2023 / By:  ZT
+# Version:  1.2.0 / Updated:  2/21/2023 / By:  ZT
 #
 # Description:  This script sets up a new macOS environment with the provided configurations.  It 
 #	would be used in scenarios where a new Mac is setup and personalized configurations are desired.
@@ -144,8 +144,8 @@ exit_check() {
 get_serial_number() {
 	# Get the Serial Number
 
-	echo $( /usr/sbin/ioreg -c IOPlatformExpertDevice -d 2 | 
-		/usr/bin/awk -F\" '/IOPlatformSerialNumber/{print $(NF-1)}' )
+	/usr/sbin/ioreg -c IOPlatformExpertDevice -d 2 | 
+		/usr/bin/awk -F\" '/IOPlatformSerialNumber/{print $(NF-1)}'
 
 }
 
@@ -219,18 +219,18 @@ Actions:
 			Example:  setup.sh --backup <type> <file> [...]
 
 Types:
-	apps		Applications Installs:  stored in a csv
-	brew		Apps and packages obtained via Brew:  stored in a BrewFile
-	app-configs	Application configurations, stored in a csv
-	mac-configs	macOS Configurations
-	prefs		Application and macOS Preferences:  stored in a csv
+	--apps		Applications Installs:  stored in a csv
+	--brew		Apps and packages obtained via Brew:  stored in a BrewFile
+	--app-configs	Application configurations, stored in a csv
+	--mac-configs	macOS Configurations
+	--prefs		Application and macOS Preferences:  stored in a csv
 
 Options:
 	--prefix | -p	Prefix for for event names for Jamf Pro Apps
 			Example:  setup.sh --apps <file> --prefix <value>
 
 	--backup-dir	Location to backup files too
-			Example:  setup.sh [ --app-configs <file> | --mac-configs ] --backup-dir </path/to/dir>
+			Example:  setup.sh --app-configs <file> --backup-dir </path/to/dir>
 
 	--debug | -d	Prints debug messages (?and doesn't make any changes)
 			Example:  setup.sh [ --options ] [ --debug | -d ]
@@ -261,9 +261,9 @@ arg_parse() {
 		debugging="true"
 	fi
 
-	if printf '%s\n' "${parameters[@]}" | grep --extended-regexp --line-regexp --quiet "\--app-configs|\--mac-configs" ; then
+	if printf '%s\n' "${parameters[@]}" | grep --extended-regexp --line-regexp --quiet "\--app-configs" ; then
 		if ! printf '%s\n' "${parameters[@]}" | grep --extended-regexp --line-regexp --quiet "\--backup-dir" ; then
-			console_writer "The --backup-dir argument must be used with the [ --app-configs | --mac-configs ] options"
+			console_writer "The --backup-dir argument must be used with the --app-configs option"
 			exit 2
 		fi
 	fi
@@ -344,7 +344,7 @@ app_installs() {
 
 	console_writer "Application installs..."
 
-	while IFS=, read app event; do
+	while IFS=, read -r app event; do
 		app=$( echo "${app}" | /usr/bin/sed 's/"//g' | /usr/bin/sed 's/[\{\}]//g' | /usr/bin/sed 's/[.]app//g' | /usr/bin/sed 's/\*/.\*/g' | /usr/bin/xargs )
 
 			if [[ "${app}" ]]; then
@@ -573,7 +573,7 @@ macOS_config() {
 	# Configure macOS configurations
 
 	local action="${1}"
-	local backup_dir="${2}"
+	# local backup_dir="${2}"
 	# local system_sync_keychain="${backup_dir}/SystemSync/Keychains/WiFiNetworks.keychain-db"
 
 	case "${1}" in
@@ -854,16 +854,16 @@ if [[ -n "${app_configs_file}" ]]; then
 fi
 
 if [[ -n "${mac_configs_file}" ]]; then
-	macOS_config "${action}" "${backup_dir}"
+	macOS_config "${action}" #"${backup_dir}"
 fi
 
 if [[ -n "${preference_file}" ]]; then
 	prefs_parser "${action}" "${preference_file}"
 fi
 
-if [[ "${action}" == "-restore" ]]; then
+if [[ "${action}" == "restore" ]]; then
 	console_writer "A reboot is recommended, would you like to perform one now?  " "" "-n"
-	read reboot_answer < /dev/tty
+	read -r reboot_answer < /dev/tty
 
 	if [[ "${reboot_answer}" =~ [Yy]([Ee][Ss])? ]]; then
 		console_writer "Rebooting..."
