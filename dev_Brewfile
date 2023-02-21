@@ -1,0 +1,17 @@
+# Repositories (Taps)
+# tap cask
+tap "homebrew/cask"
+
+
+# CLI Tools (Formulae)
+brew "mas"
+brew "pyenv"
+brew "pyenv-pip-migrate"
+brew "pyenv-virtualenv"
+brew "shellcheck"
+
+
+# Applications (Casks)
+cask "qlmarkdown"
+cask "quicklook-json"
+cask "quicklook-csv"
