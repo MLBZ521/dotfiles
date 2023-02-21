@@ -1,20 +1,20 @@
-app, event
-Adobe Acrobat Reader, Adobe_reader
-Bomgar Console, Bomgar_Console
-Cisco AnyConnect*, Cisco_AnyConnect
-DisplayLink Manager, DisplayLink_Manager
-Dropbox, Dropbox
-Firefox, Firefox
-GitHub Desktop,  GitHubDesktop
-Google Chrome, Google_Chrome
-Google Drive, Google_Drive
-iTerm, iTerm
-Jamf Pro*, Jamf_Pro_Tools
-Microsoft Remote Desktop, Microsoft_Remote_Desktop
-Microsoft Teams, Microsoft_Teams
-Slack, Slack
-Snagit *, Snagit
-Suspicious Package, Suspicious_Package
-Visual Studio Code, Visual_Studio_Code
-VLC, VLC
-zoom.us, Zoom
+app,event
+Adobe Acrobat Reader,Adobe_reader
+Bomgar Console,Bomgar_Console
+Cisco AnyConnect*,Cisco_AnyConnect
+DisplayLink Manager,DisplayLink_Manager
+Dropbox,Dropbox
+Firefox,Firefox
+GitHub Desktop,GitHubDesktop
+Google Chrome,Google_Chrome
+Google Drive,Google_Drive
+iTerm,iTerm
+Jamf Pro*,Jamf_Pro_Tools
+Microsoft Remote Desktop,Microsoft_Remote_Desktop
+Microsoft Teams,Microsoft_Teams
+Slack,Slack
+Snagit *,Snagit
+Suspicious Package,Suspicious_Package
+Visual Studio Code,Visual_Studio_Code
+VLC,VLC
+zoom.us,Zoom
