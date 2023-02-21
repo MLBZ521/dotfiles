@@ -102,24 +102,6 @@ defaults write com.apple.dashboard mcx-disabled -bool true # Disable Dashboard
 
 
 ##################################################
-# Energy Saver
-
-# AC Adapter
-pmset -c displaysleep 20 # Display Sleep Timer
-pmset -c womp 1 # Wake On LAN
-pmset -c disksleep 10 # Disk Sleep Timer
-pmset -c sleep 0 # System Sleep Timer
-pmset -c powernap 0 # DarkWakeBackgroundTasks (Power Nap)
-
-# Battery
-pmset -b displaysleep 10 # Display Sleep Timer
-pmset -b disksleep 10 # Disk Sleep Timer
-pmset -b sleep 15 # System Sleep Timer
-pmset -b powernap 0 # DarkWakeBackgroundTasks (Power Nap)
-pmset -b lessbright 1 # ReduceBrightness
-
-
-##################################################
 # Keyboard
 
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3 # Allows Tab to move keyboard focus between "All Controls"
@@ -233,8 +215,6 @@ defaults write com.apple.Siri UserHasDeclinedEnable -bool true
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false # Disable auto-correct
 
 # Disable Guest User
-/usr/bin/dscl . -delete /Users/Guest
-/usr/bin/security delete-generic-password -a Guest -s com.apple.loginwindow.guest-account -D "application password" /Library/Keychains/System.keychain
 # Also-do we need this still? (Should un-tick the box)
 /usr/bin/defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -bool FALSE
 
