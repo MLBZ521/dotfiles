@@ -3,7 +3,7 @@
 ###################################################################################################
 # Script Name:  setup.sh
 # By:  Zack Thompson / Created:  1/12/2020
-# Version:  1.1.3 / Updated:  2/21/2023 / By:  ZT
+# Version:  1.1.4 / Updated:  2/21/2023 / By:  ZT
 #
 # Description:  This script sets up a new macOS environment with the provided configurations.  It 
 #	would be used in scenarios where a new Mac is setup and personalized configurations are desired.
@@ -472,21 +472,23 @@ app_config() {
 	console_writer "Reading preference file:  ${file}"
 
 	serial_number=$( get_serial_number )
+	restore_from_dir="${backup_dir}"
 	backup_dir="${backup_dir}/SystemSync/Configs_${serial_number}"
 
 	if [[ -d "${backup_dir}" ]]; then
 		previous_backup_time_stamp=$( /bin/cat "${backup_dir}/backup_created.txt" )
 		/bin/mv "${backup_dir}" "${backup_dir}_${previous_backup_time_stamp}"
-		make_directory "${backup_dir}"
 	fi
 
+	make_directory "${backup_dir}"
 	echo "${time_stamp}" > "${backup_dir}/backup_created.txt"
 
 	# Read in the file and assign to variables
-	while IFS=, read status application location configuration_file notes; do
+	while IFS=, read -r status application location configuration_file notes; do
 
 		current_config=$( eval echo "\"${location}\"/${configuration_file}" )
 		backup_config="${backup_dir}/${application}/${configuration_file}"
+		restore_config="${restore_from_dir}/${application}/${configuration_file}"
 		console_writer "Local Config:  ${current_config}" "Debug"
 		console_writer "Backup To:  ${backup_config}" "Debug"
 
@@ -497,7 +499,7 @@ app_config() {
 			;;
 			"restore" )
 				# Verify the desired config exists before doing anything
-				if [[ $status == "enabled" && -e "${backup_config}" ]]; then
+				if [[ $status == "enabled" && -e "${restore_config}" ]]; then
 
 					# Check if the local config is a already exists and back it up if so, just in case
 					if [[ -e "${current_config}" ]]; then
@@ -505,7 +507,7 @@ app_config() {
 					fi
 
 					# Copy the backed up config to the proper location
-					execute_cmd "/bin/cp \"${backup_config}\" \"${current_config}\""
+					/usr/bin/sudo /usr/bin/ditto "${restore_config}" "${current_config}"
 
 				fi
 			;;
