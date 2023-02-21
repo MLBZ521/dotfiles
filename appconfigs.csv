@@ -1,0 +1,36 @@
+status,application,location,configuration_file,notes
+,,,,
+enabled,Bash,${HOME},.bash_profile,
+enabled,Git,${HOME},.gitconfig,
+enabled,GitKraken,${HOME},.gitkraken,
+enabled,Sequel Pro,/Library/Application Support/Sequel Pro/Data,Favorites.plist,
+enabled,SSH,${HOME},.ssh,
+enabled,Wireshark,${HOME}/.config,wireshark,
+enabled,Visual Studio Code,${HOME}/Library/Application Support,Code,
+disabled,Visual Studio Code,${HOME}/Library/Application Support/Code/,User,May want to use this one instead
+enabled,Sublime Text,${HOME}/Library/Application Support/Sublime Text 3/Packages,User,Based on https://packagecontrol.io/docs/syncing
+enabled,Xcode,${HOME}/Library/Preferences,com.apple.dt.Xcode.plist,
+enabled,Firefox,${HOME}/Library/Application Support/Firefox/Profiles,p971p4ug.default,
+enabled,Google Chrome,${HOME}/Library/Application Support/Google/Chrome,Default,
+enabled,Packages,${HOME}/Library/Preferences,fr.whitebox.Packages.plist,Backup entire list
+,,,,
+enabled,Apple Configurator 2,${HOME}/Library/Group Containers/K36BKF7T3D.group.com.apple.configurator/Library/Application Support/com.apple.configurator,Blueprints,Blueprints or iOS software images (https://support.apple.com/en-us/HT207434)
+disabled,Apple Configurator 2,${HOME}/Library/Containers/com.apple.configurator.ui/Data/Library/Preferences,com.apple.configurator.ui.plist,Preferences (https://support.apple.com/en-us/HT207434)
+disabled,Apple Configurator 2,${HOME}/Library/Application Support/MobileSync,Backup,Device backups (https://support.apple.com/en-us/HT207434)
+enabled,Apple Configurator 2,/var/db,lockdown,Device trust and pairing information (https://support.apple.com/en-us/HT207434)
+enabled,Apple Configurator 2,${HOME}/Library/Keychains,login.keychain-db,Device trust and pairing information (https://support.apple.com/en-us/HT207434)
+,,,,
+enabled,Apple Remote Desktop,/var/db,RemoteManagement,This database and set of caches contains the Remote Desktop Client database used by client reporting
+disabled,Apple Remote Desktop,/var/db/RemoteManagement,RMDB,Or just this one
+enabled,Apple Remote Desktop,/Library/Application Support/Apple,Remote Desktop,
+enabled,Apple Remote Desktop,${HOME}/Library/Containers,com.apple.RemoteDesktop,
+,,,,
+enabled,Microsoft Remote Desktop,${HOME}/Library/Containers/com.microsoft.rdc.macos/Data/Library/Application Support/com.microsoft.rdc.macos,com.microsoft.rdc.application-data.sqlite,
+enabled,Microsoft Remote Desktop,${HOME}/Library/Containers/com.microsoft.rdc.macos/Data/Library/Application Support/com.microsoft.rdc.macos,com.microsoft.rdc.application-data.sqlite-shm,
+enabled,Microsoft Remote Desktop,${HOME}/Library/Containers/com.microsoft.rdc.macos/Data/Library/Application Support/com.microsoft.rdc.macos,com.microsoft.rdc.application-data.sqlite-wal,
+,,,,
+enabled,LaunchServices,${HOME}/Library/Preferences/com.apple.LaunchServices,com.apple.launchservices.secure.plist,Default Applications
+,,,,
+enabled,Terminal,${HOME}/Library/Preferences,com.apple.Terminal.plist,Backup Terminal Configuration
+,,,,
+enabled,WiFi Network,/Library/Preferences/SystemConfiguration,com.apple.airport.preferences.plist,Backup WiFi Networks?

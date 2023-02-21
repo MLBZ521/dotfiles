@@ -1,0 +1,155 @@
+status,category,pref_type,location,preference_domain,key,value_type,value,notes
+enabled,Login Window,macOS,Library,com.apple.loginwindow,AdminHostInfo,,HostName,
+enabled,Login Window,macOS,Library,com.apple.loginwindow,SHOWFULLNAME,-bool,TRUE,Show username and password fields
+enabled,Login Window,macOS,Library,com.apple.loginwindow,GuestEnabled,-bool,FALSE,Disable Guest User (Do we need this still? (Should un-tick the box?)
+disabled,Login Window,macOS,Library,com.apple.loginwindow,showInputMenu,-bool,FALSE,Show language menu in the top right corner of the boot screen
+,,,,,,,,
+enabled,Finder,macOS,user,NSGlobalDomain,AppleShowAllExtensions,-bool,TRUE,Show all file extensions
+enabled,Finder,macOS,user,com.apple.finder,AppleShowAllFiles,-string,Yes,Show all (hidden) files
+enabled,Finder,macOS,user,com.apple.finder,ShowPathbar,-bool,TRUE,Show path bar
+enabled,Finder,macOS,user,NSGlobalDomain,AppleShowScrollBars,-string,Always,Always show scroll bars
+enabled,Finder,macOS,user,com.apple.finder,ShowStatusBar,-bool,TRUE,Show status bar
+disabled,Finder,macOS,user,NSGlobalDomain,NSTableViewDefaultSizeMode,-int,2,?
+enabled,Finder,macOS,user,com.apple.desktopservices,DSDontWriteNetworkStores,-bool,TRUE,Do not create .DS_Store files on Mounted Network Volumes
+enabled,Finder,macOS,user,com.apple.desktopservices,DSDontWriteUSBStores,-bool,TRUE,Do not create .DS_Store files on Mounted USB Volumes
+enabled,Finder,macOS,user,NSGlobalDomain,AppleActionOnDoubleClick,,Maximize,"Double-click a window's title bar to ""zoom"""
+enabled,Finder,macOS,user,com.apple.finder,ShowRecentTags,-bool,FALSE,
+enabled,Finder,macOS,user,com.apple.finder,FXDefaultSearchScope,-string,SCcf,"When performing a search, search the current folder by default"
+enabled,Finder,macOS,user,com.apple.finder,FXEnableExtensionChangeWarning,-bool,FALSE,Disable the warning when changing a file extension
+enabled,Finder,macOS,user,NSGlobalDomain,NSNavPanelExpandedStateForSaveMode,-bool,TRUE,Expand save panel by default
+enabled,Finder,macOS,user,NSGlobalDomain,PMPrintingExpandedStateForPrint,-bool,TRUE,Expand print panel by default
+,,,,,,,,
+enabled,Finder,macOS,user,com.apple.finder,ShowExternalHardDrivesOnDesktop,-bool,FALSE,Show icons on the desktop for external hard drives
+enabled,Finder,macOS,user,com.apple.finder,ShowHardDrivesOnDesktop,-bool,FALSE,Show icons on the desktop for internal hard drives
+enabled,Finder,macOS,user,com.apple.finder,ShowMountedServersOnDesktop,-bool,FALSE,Show icons on the desktop for mounted servers
+enabled,Finder,macOS,user,com.apple.finder,ShowRemovableMediaOnDesktop,-bool,FALSE,Show icons on the desktop for removable media
+,,,,,,,,
+enabled,Finder,macOS,user,com.apple.finder,FXPreferredViewStyle,-string,clmv,"Use column view in all Finder windows by default; Four-letter codes for the other view modes: `Nlsv`, `icnv`, `clmv`, `glyv`"
+,,,,,,,,
+enabled,Menu Bar,macOS,user,com.apple.systemuiserver,menuExtras,-array,"/System/Library/CoreServices/Menu Extras/Volume.menu" "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Clock.menu",Reset icons in the Menu Bar and set visible items
+enabled,Menu Bar,macOS,user,com.apple.systemuiserver,NSStatusItem Visible com.apple.menuextra.remotedesktop,-bool,TRUE,Enable remote desktop icon in Menu Bar
+enabled,Menu Bar,macOS,user,com.apple.menuextra.battery.plist,ShowPercent,-string,YES,Enable battery percentage in Menu Bar
+enabled,Menu Bar,macOS,user,com.apple.airplay,showInMenuBarIfPresent,-bool,FALSE,Don't show mirroring options in menu bar
+enabled,Menu Bar,macOS,user,com.apple.menuextra.clock,DateFormat,-string,EEE h:mm:ss a,Show date on the menu bar
+,,,,,,,,
+enabled,Screensaver,macOS,ByHost,com.apple.screensaver,idleTime,-int,600,Start after number of seconds
+enabled,Screensaver,macOS,ByHost,com.apple.screensaver,showClock,-bool,TRUE,Show with clock
+enabled,Screensaver,macOS,ByHost,com.apple.screensaver,moduleDict,-dict,moduleName "Computer Name" path "/System/Library/Frameworks/ScreenSaver.framework/Resources/Computer Name.saver" type 0,Set the desired screen saver
+,,,,,,,,
+disabled,Dock,macOS,user,com.apple.dock,orientation,,bottom,Dock Position on screen
+enabled,Dock,macOS,user,com.apple.dock,autohide,-bool,TRUE,Automatically hide and show the Dock
+enabled,Dock,macOS,user,com.apple.dock,autohide-delay,-float,0,Remove the auto-hiding Dock delay
+enabled,Dock,macOS,user,com.apple.dock,no-bouncing,-bool,FALSE,?
+enabled,Dock,macOS,user,com.apple.dock,launchanim,-bool,TRUE,Animate opening applications
+enabled,Dock,macOS,user,com.apple.dock,tilesize,-int,40,Size of dock icon
+enabled,Dock,macOS,user,com.apple.dock,largesize,-int,45,Size of hovered dock icon (magnification)
+enabled,Dock,macOS,user,com.apple.dock,magnification,-bool,TRUE,Magnification enabled
+enabled,Dock,macOS,user,com.apple.dock,mineffect,,genie,Minimize window effect
+enabled,Dock,macOS,user,com.apple.dock,show-process-indicators,-bool,TRUE,Show indicators for open applications
+,,,,,,,,
+disabled,Dock,macOS,user,com.apple.dock,show-recents,-bool,FALSE,Don't show recent applications in Dock
+,,,,,,,,
+enabled,Dock,macOS,user,com.apple.dock,persistent-apps,-array,,Wipe all (default) app icons from the Dock (Probably only want to run this on a *new* Mac)
+,,,,,,,,
+enabled,Dock,macOS,user,com.apple.dock,persistent-apps,-array-add,'<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Notes.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>',Add preferred icons to the dock
+enabled,Dock,macOS,user,com.apple.dock,persistent-apps,-array-add,'<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Google Chrome.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>',
+enabled,Dock,macOS,user,com.apple.dock,persistent-apps,-array-add,'<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Code.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>',
+enabled,Dock,macOS,user,com.apple.dock,persistent-apps,-array-add,'<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Remote Deskstop.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>',
+,,,,,,,,
+enabled,Mission Control / Dashboard,macOS,user,com.apple.dock,mru-spaces,-bool,FALSE,Automatically rearrange Spaces based on most recent use
+enabled,Mission Control / Dashboard,macOS,user,com.apple.dock,workspaces-auto-swoosh,-boolean,FALSE,"When switching to an application, switch to a Space with open windows for the application"
+enabled,Mission Control / Dashboard,macOS,user,com.apple.dock,expose-group-apps,-bool,FALSE,Group Windows by application
+enabled,Mission Control / Dashboard,macOS,user,com.apple.dock,dashboard-in-overlay,-bool,TRUE,Don't show Dashboard as a Space
+enabled,Mission Control / Dashboard,macOS,user,com.apple.dashboard,mcx-disabled,-bool,TRUE,Disable Dashboard
+,,,,,,,,
+enabled,Keyboard,macOS,user,NSGlobalDomain,AppleKeyboardUIMode,-int,3,"Allows Tab to move keyboard focus between ""All Controls"""
+enabled,Keyboard,macOS,user,NSGlobalDomain,com.apple.keyboard.fnState,-bool,TRUE,"Use F1, F2, etc. keys as standard function keys"
+enabled,Keyboard,macOS,user,NSGlobalDomain,ApplePressAndHoldEnabled,-bool,FALSE,Disable press-and-hold for keys in favor of key repeat
+,,,,,,,,
+enabled,Trackpad,macOS,user,com.apple.AppleMultitouchTrackpad.plist,TrackpadThreeFingerTapGesture,-int,0,Trackpad > Point & Click > Look up & data detectors
+enabled,Trackpad,macOS,user,com.apple.AppleMultitouchTrackpad.plist,TrackpadRightClick,-bool,TRUE,Trackpad > Point & Click > Tap to click
+enabled,Trackpad,macOS,user,com.apple.AppleMultitouchTrackpad.plist,Clicking,-bool,FALSE,Trackpad > Point & Click > Secondary click
+enabled,Trackpad,macOS,user,NSGlobalDomain,com.apple.trackpad.scaling,-float,2,Tracking speed for the Trackpad
+enabled,Trackpad,macOS,user,NSGlobalDomain,com.apple.swipescrolldirection,-bool,FALSE,"Trackpad Scroll & Zoom:  Scroll direction: Natural (Disable scroll direction ""Natural"")"
+enabled,Trackpad,macOS,user,com.apple.AppleMultitouchTrackpad.plist,TrackpadRotate,-bool,FALSE,Trackpad > Scroll & Zoom > Rotate
+enabled,Trackpad,macOS,user,com.apple.AppleMultitouchTrackpad.plist,TrackpadTwoFingerDoubleTapGesture,-bool,FALSE,Trackpad > Scroll & Zoom > Smart zoom
+enabled,Trackpad,macOS,user,NSGlobalDomain,AppleEnableSwipeNavigateWithScrolls,-bool,FALSE,Trackpad > More Gestures > Swipe between pages
+enabled,Trackpad,macOS,user,com.apple.AppleMultitouchTrackpad.plist,TrackpadThreeFingerHorizSwipeGesture,-int,2, Trackpad > More Gestures > Swipe between full-screen apps
+enabled,Trackpad,macOS,user,com.apple.AppleMultitouchTrackpad.plist,TrackpadTwoFingerFromRightEdgeSwipeGesture,-int,0, Trackpad > More Gestures > Notification Center
+enabled,Trackpad,macOS,user,com.apple.dock,showMissionControlGestureEnabled,-bool,TRUE,Trackpad > More Gestures > Mission Control
+enabled,Trackpad,macOS,user,com.apple.dock,showAppExposeGestureEnabled,-bool,TRUE, Trackpad > More Gestures > App Expose
+enabled,Trackpad,macOS,user,com.apple.dock,showLaunchpadGestureEnabled,-bool,TRUE,Trackpad > More Gestures > Launchpad
+enabled,Trackpad,macOS,user,com.apple.dock,showDesktopGestureEnabled,-bool,TRUE,Trackpad > More Gestures > Show Desktop
+,,,,,,,,
+enabled,Mouse,macOS,user,NSGlobalDomain,com.apple.mouse.scaling,-float,2,Tracking speed for the Mouse
+enabled,Mouse,macOS,user,NSGlobalDomain,com.apple.scrollwheel.scaling,-float,0.75,Tracking speed for the Scrollwheel
+,,,,,,,,
+enabled,Sound,macOS,ByHost,com.apple.soundpref,AlertsUseMainDevice,-int,0,"Play sound effect through:  0 = Internal Speakers,  1 = Selected sound output device"
+enabled,Sound,macOS,user,NSGlobalDomain,com.apple.sound.uiaudio.enable,-int,1,Play user interface sound effects
+enabled,Sound,macOS,user,NSGlobalDomain,com.apple.sound.beep.feedback,-int,1,Play feedback when volume is changed
+,,,,,,,,
+enabled,Safari & WebKit,macOS,user,com.apple.Safari,UniversalSearchEnabled,-bool,FALSE,Privacy: don't send search queries to Apple
+enabled,Safari & WebKit,macOS,user,com.apple.Safari,SuppressSearchSuggestions,-bool,TRUE,Privacy: don't send search queries to Apple
+enabled,Safari & WebKit,macOS,user,com.apple.Safari,ShowFullURLInSmartSearchField,-bool,TRUE,Show the full URL in the address bar (note: this still hides the scheme)
+enabled,Safari & WebKit,macOS,user,com.apple.Safari,HomePage,-string,about:blank,Set Safari's home page to `about:blank` for faster loading
+enabled,Safari & WebKit,macOS,user,com.apple.Safari,AutoOpenSafeDownloads,-bool,FALSE,Prevent Safari from opening ‘safe' files automatically after downloading
+enabled,Safari & WebKit,macOS,user,com.apple.Safari,com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled,-bool,TRUE,Allow hitting the Backspace key to go to the previous page in history
+enabled,Safari & WebKit,macOS,user,com.apple.Safari,ShowSidebarInTopSites,-bool,FALSE,Hide Safari's sidebar in Top Sites
+enabled,Safari & WebKit,macOS,user,com.apple.Safari,FindOnPageMatchesWordStartsOnly,-bool,FALSE,Make Safari's search banners default to Contains instead of Starts With
+enabled,Safari & WebKit,macOS,user,com.apple.Safari,WebAutomaticSpellingCorrectionEnabled,-bool,FALSE,Disable auto-correct
+,,,,,,,,
+enabled,Spotlight,macOS,system,/.Spotlight-V100/VolumeConfiguration,Exclusions,-array,/Volumes,Disable Spotlight indexing for any volume that gets mounted and has not yet been indexed before.
+,,,,,,,,
+enabled,Time Machine,macOS,Library,com.apple.TimeMachine,DoNotOfferNewDisksForBackup,-bool,TRUE,Do not offer to use new disks for Time Machine
+,,,,,,,,
+enabled,Software Updates,macOS,Library,com.apple.SoftwareUpdate,AutomaticCheckEnabled,-bool,TRUE,Automatically check for updates
+enabled,Software Updates,macOS,Library,com.apple.SoftwareUpdate,AutomaticDownload,-bool,FALSE,Automatically download new updates when available
+enabled,Software Updates,macOS,Library,com.apple.SoftwareUpdate,AutomaticallyInstallMacOSUpdates,-bool,FALSE,Automatically install macOS updates
+enabled,Software Updates,macOS,Library,com.apple.commerce,AutoUpdate,-bool,FALSE,Automatically install app updates from the App Store
+enabled,Software Updates,macOS,Library,com.apple.SoftwareUpdate,CriticalUpdateInstall,-bool,FALSE,Automatically install system data files and security updates
+enabled,Software Updates,macOS,Library,com.apple.SoftwareUpdate,ConfigDataInstall,-bool,FALSE,Automatically install system data files and security updates
+,,,,,,,,
+disabled,Software Updates,macOS,Library,com.apple.SoftwareUpdate,ScheduleFrequency,-int,1,"Check for software updates daily,  not just once per week"
+disabled,Software Updates,macOS,Library,com.apple.commerce,AutoUpdateRestartRequired,-bool,TRUE,Allow the App Store to reboot machine on macOS updates
+,,,,,,,,
+enabled,Bluetooth,macOS,Library,com.apple.Bluetooth,ControllerPowerState,-int,0,Turn Bluetooth off
+,,,,,,,,
+enabled,Security & Privacy,macOS,system,/Library/Application\ Support/CrashReporter/DiagnosticMessagesHistory.plist,AutoSubmit,-bool,FALSE,Share Mac Analytics
+enabled,Security & Privacy,macOS,system,/Library/Application\ Support/CrashReporter/DiagnosticMessagesHistory.plist,AutoSubmitVersion,-int,0,
+enabled,Security & Privacy,macOS,system,/Library/Application\ Support/CrashReporter/DiagnosticMessagesHistory.plist,ThirdPartyDataSubmit,-bool,FALSE,Share with App Developers
+enabled,Security & Privacy,macOS,system,/Library/Application\ Support/CrashReporter/DiagnosticMessagesHistory.plist,ThirdPartyDataSubmitVersion,-int,0,
+,,,,,,,,
+enabled,Siri,macOS,user,com.apple.assistant.support.plist,Assistant Enabled,-bool,FALSE,
+enabled,Siri,macOS,user,com.apple.assistant.support.plist,Dictation Enabled,-bool,FALSE,
+enabled,Siri,macOS,user,com.apple.Siri,StatusMenuVisible,-bool,FALSE,
+enabled,Siri,macOS,user,com.apple.Siri,UserHasDeclinedEnable,-bool,TRUE,
+,,,,,,,,
+enabled,Misc,macOS,user,NSGlobalDomain,NSAutomaticSpellingCorrectionEnabled,-bool,FALSE,Disable auto-correct
+,,,,,,,,
+,,,,,,,,
+enabled,Remote Management,macOS,Library,com.apple.RemoteManagement.plist,LoadRemoteManagementMenuExtra,-bool,TRUE,
+,,,,,,,,
+,,,,,,,,
+enabled,Evernote,application,user,com.evernote.Evernote,ENLeftNavShowsNoteCounts,-bool,TRUE,
+enabled,Evernote,application,user,com.evernote.Evernote,SUEnableAutomaticChecks,-bool,FALSE,
+enabled,Evernote,application,user,com.evernote.Evernote,runHelperAtLogin,-bool,FALSE,
+enabled,Evernote,application,user,com.evernote.Evernote,runHelperWithoutMainApp,-bool,FALSE,
+enabled,Evernote,application,user,com.evernote.Evernote,showsStatusBarItem,-bool,FALSE,
+,,,,,,,,
+enabled,Parallels Desktop,application,user,com.parallels.Parallels Desktop,Application preferences.Check for updates,-int,0,"Check for updates:  0 = Never, 1 = Once a day, 2 = week, 3 = month"
+enabled,Parallels Desktop,application,user,com.parallels.Parallels Desktop,Application preferences.Dock icon,-int,2,"Virtual machine Dock icons:  0 = OS Icon, 1 = Live Screenshot, 2 = None"
+,,,,,,,,
+enabled,Parallels Desktop,application,user,com.parallels.Parallels Desktop,Application preferences.Download updates automatically,-bool,FALSE,Download updates automatically
+enabled,Parallels Desktop,application,user,com.parallels.Parallels Desktop,Application preferences.Show Develop Menu,-int,0,Show Develop Menu
+enabled,Parallels Desktop,application,user,com.parallels.Parallels Desktop,Application preferences.Show Tray Icon,-bool,TRUE,Show Parallels icon in the menu bar
+disabled,Parallels Desktop,application,user,com.parallels.Parallels,Parallels.MainApp.Default 'ftp' App,-string,com.apple.finder,
+enabled,Parallels Desktop,application,user,com.parallels.Parallels,Parallels.MainApp.Default 'http' App,-string,com.google.chrome,
+enabled,Parallels Desktop,application,user,com.parallels.Parallels,Parallels.MainApp.Default 'https' App,-string,com.google.chrome,
+disabled,Parallels Desktop,application,user,com.parallels.Parallels,Parallels.MainApp.Default 'mailto' App,-string,com.apple.safari,
+enabled,Parallels Desktop,application,user,com.parallels.Parallels,Parallels.MainApp.Default 'ssh' App,-string,com.apple.Terminal,
+enabled,Parallels Desktop,application,user,com.parallels.Parallels,Parallels.MainApp.Default 'telnet' App,-string,com.apple.Terminal,
+,,,,,,,,
+enabled,Sequel Pro,application,user,com.sequelpro.SequelPro,SUEnableAutomaticChecks,-bool,FALSE,
+enabled,Snagit 2019,application,user,com.TechSmith.Snagit2019,SUEnableAutomaticChecks,-bool,FALSE,
+,,,,,,,,
+enabled,Visual Studio Code,application,user,com.microsoft.VSCode,ApplePressAndHoldEnabled,-bool,FALSE,Fix VSCodeVim Key Repeat
