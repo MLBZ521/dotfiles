@@ -15,10 +15,11 @@ brew "shellcheck"
 
 # Applications (Casks)
 # cask "disk-inventory-x"
+cask "evernote"
 # cask "github"
 cask "gitkraken"
 # cask "postman"
-# cask "powershell"
+cask "powershell"
 # cask "sublime-text"
 cask "sequel-ace"
 cask "qlmarkdown"

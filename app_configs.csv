@@ -33,3 +33,4 @@ enabled,Microsoft Remote Desktop,${HOME}/Library/Containers/com.microsoft.rdc.ma
 enabled,LaunchServices,${HOME}/Library/Preferences/com.apple.LaunchServices,com.apple.launchservices.secure.plist,Default Applications
 enabled,Terminal,${HOME}/Library/Preferences,com.apple.Terminal.plist,Backup Terminal Configuration
 disabled,WiFi Network,/Library/Preferences/SystemConfiguration,com.apple.airport.preferences.plist,Backup WiFi Networks?
+enabled,Jamf Connect Configuration,/Users/zthomps3/Library/Application Support,Jamf Connect Configuration,sqlite database of configurations
